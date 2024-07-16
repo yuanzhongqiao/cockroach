@@ -1,120 +1,91 @@
-<p align="center">
-  <img src='docs/media/cockroach_db.png?raw=true' width='70%'>
+<div class="Box-sc-g0xbh4-0 bJMeLZ js-snippet-clipboard-copy-unpositioned" data-hpc="true"><article class="markdown-body entry-content container-lg" itemprop="text"><p align="center" dir="auto">
+  <a target="_blank" rel="noopener noreferrer" href="/cockroachdb/cockroach/blob/master/docs/media/cockroach_db.png?raw=true"><img src="/cockroachdb/cockroach/raw/master/docs/media/cockroach_db.png?raw=true" width="70%" style="max-width: 100%;"></a>
 </p>
-
----
-
-CockroachDB is a cloud-native distributed SQL database designed to build,
-scale, and manage modern, data-intensive applications. 
-
-- [What is CockroachDB?](#what-is-cockroachdb)
-- [Docs](#docs)
-- [Starting with Cockroach Cloud](#starting-with-cockroachcloud)
-- [Starting with CockroachDB](#starting-with-cockroachdb)
-- [Client Drivers](#client-drivers)
-- [Deployment](#deployment)
-- [Need Help?](#need-help)
-- [Contributing](#contributing)
-- [Design](#design)
-- [Comparison with Other Databases](#comparison-with-other-databases)
-- [See Also](#see-also)
-
-## What is CockroachDB?
-
-CockroachDB is a distributed SQL database built on a transactional and
-strongly-consistent key-value store. It **scales** horizontally;
-**survives** disk, machine, rack, and even datacenter failures with
-minimal latency disruption and no manual intervention; supports
-**strongly-consistent** ACID transactions; and provides a familiar
-**SQL** API for structuring, manipulating, and querying data.
-
-For more details, see our [FAQ](https://cockroachlabs.com/docs/stable/frequently-asked-questions.html) or [architecture document](
-https://www.cockroachlabs.com/docs/stable/architecture/overview.html).
-
-<p align="center">
-  <a href='https://www.youtube.com/watch?v=VgXiMcbGwzQ'> <img src='docs/media/explainer-video-preview.png' width='70%'> </a>
+<hr>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">CockroachDB 是一个云原生分布式 SQL 数据库，旨在构建、扩展和管理现代数据密集型应用程序。</font></font></p>
+<ul dir="auto">
+<li><a href="#what-is-cockroachdb"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">什么是 CockroachDB？</font></font></a></li>
+<li><a href="#docs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文档</font></font></a></li>
+<li><a href="#starting-with-cockroachcloud"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">从 Cockroach Cloud 开始</font></font></a></li>
+<li><a href="#starting-with-cockroachdb"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">从 CockroachDB 开始</font></font></a></li>
+<li><a href="#client-drivers"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">客户端驱动程序</font></font></a></li>
+<li><a href="#deployment"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">部署</font></font></a></li>
+<li><a href="#need-help"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">需要帮忙？</font></font></a></li>
+<li><a href="#contributing"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">贡献</font></font></a></li>
+<li><a href="#design"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">设计</font></font></a></li>
+<li><a href="#comparison-with-other-databases"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">与其他数据库的比较</font></font></a></li>
+<li><a href="#see-also"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">也可以看看</font></font></a></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">什么是 CockroachDB？</font></font></h2><a id="user-content-what-is-cockroachdb" class="anchor" aria-label="永久链接：什么是 CockroachDB？" href="#what-is-cockroachdb"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">CockroachDB 是一个基于事务性和强一致性键值存储的分布式 SQL 数据库。它可以水平</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">扩展</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">；
+</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">能够承受</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">磁盘、机器、机架甚至数据中心故障，同时将延迟中断降至最低，无需人工干预；支持
+</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">强一致性</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ACID 事务；并提供熟悉的
+</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">SQL</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> API 来构造、操作和查询数据。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">有关更多详细信息，请参阅我们的</font></font><a href="https://cockroachlabs.com/docs/stable/frequently-asked-questions.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">常见问题解答</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">或</font></font><a href="https://www.cockroachlabs.com/docs/stable/architecture/overview.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">架构文档</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></p>
+<p align="center" dir="auto">
+  <a href="https://www.youtube.com/watch?v=VgXiMcbGwzQ" rel="nofollow"> <img src="/cockroachdb/cockroach/raw/master/docs/media/explainer-video-preview.png" width="70%" style="max-width: 100%;"> </a>
 </p>
-
-## Docs
-
-For guidance on installation, development, deployment, and administration, see our [User Documentation](https://cockroachlabs.com/docs/stable/).
-
-## Starting with CockroachCloud
-
-We can run CockroachDB for you, so you don't have to run your own cluster.
-
-See our online documentation: [Quickstart with CockroachCloud](https://www.cockroachlabs.com/docs/cockroachcloud/quickstart.html)
-
-## Starting with CockroachDB
-
-1. Install CockroachDB:  [using a pre-built executable](https://www.cockroachlabs.com/docs/stable/install-cockroachdb.html) or [build it from source](https://www.cockroachlabs.com/docs/v21.1/install-cockroachdb-linux#build-from-source).
-2. [Start a local cluster](https://www.cockroachlabs.com/docs/stable/start-a-local-cluster.html) and connect to it via the [built-in SQL client](https://www.cockroachlabs.com/docs/stable/use-the-built-in-sql-client.html).
-3. [Learn more about CockroachDB SQL](https://www.cockroachlabs.com/docs/stable/learn-cockroachdb-sql.html).
-4. Use a PostgreSQL-compatible driver or ORM to [build an app with CockroachDB](https://www.cockroachlabs.com/docs/stable/hello-world-example-apps.html).
-5. [Explore core features](https://www.cockroachlabs.com/docs/stable/demo-data-replication.html), such as data replication, automatic rebalancing, and fault tolerance and recovery.
-
-## Client Drivers
-
-CockroachDB supports the PostgreSQL wire protocol, so you can use any available PostgreSQL client drivers to connect from various languages.
-
-- For recommended drivers that we've tested, see [Install Client Drivers](https://www.cockroachlabs.com/docs/stable/install-client-drivers.html).
-- For tutorials using these drivers, as well as supported ORMs, see [Example Apps](https://www.cockroachlabs.com/docs/stable/example-apps.html).
-
-## Deployment
-
-- [CockroachCloud](https://www.cockroachlabs.com/docs/cockroachcloud/quickstart) - Steps to create a [free CockroachCloud cluster](https://cockroachlabs.cloud/signup?referralId=githubquickstart) on your preferred Cloud platform.
-- [Manual](https://www.cockroachlabs.com/docs/stable/manual-deployment.html) - Steps to deploy a CockroachDB cluster manually on multiple machines.
-- [Cloud](https://www.cockroachlabs.com/docs/stable/cloud-deployment.html) - Guides for deploying CockroachDB on various cloud platforms.
-- [Orchestration](https://www.cockroachlabs.com/docs/stable/orchestration.html) - Guides for running CockroachDB with popular open-source orchestration systems.
-
-## Need Help?
-
-- [CockroachDB Community Slack](https://go.crdb.dev/p/slack) - Join our slack to connect with our engineers and other users running CockroachDB.
-- [CockroachDB Forum](https://forum.cockroachlabs.com/) and [Stack Overflow](https://stackoverflow.com/questions/tagged/cockroachdb) - Ask questions, find answers, and help other users.
-- [Troubleshooting documentation](https://www.cockroachlabs.com/docs/stable/troubleshooting-overview.html) - Learn how to troubleshoot common errors, cluster setup, and SQL query behavior.
-- For filing bugs, suggesting improvements, or requesting new features, help us out by [opening an issue](https://github.com/cockroachdb/cockroach/issues/new).
-
-## Building from source
-
-See [our wiki](https://wiki.crdb.io/wiki/spaces/CRDB/pages/181338446/Getting+and+building+from+source) for more details.
-
-## Contributing
-
-We welcome your contributions! If you're looking for issues to work on, try looking at the [good first issue list](https://github.com/cockroachdb/cockroach/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22). We do our best to tag issues suitable for new external contributors with that label, so it's a great way to find something you can help with!
-
-See [our wiki](https://wiki.crdb.io/wiki/spaces/CRDB/pages/73204033/Contributing+to+CockroachDB) for more details.
-
-Engineering discussions take place on our public mailing list, [cockroach-db@googlegroups.com](https://groups.google.com/forum/#!forum/cockroach-db). Also please join our [Community Slack](https://go.crdb.dev/p/slack) (there's a dedicated #contributors channel!) to ask questions, discuss your ideas, and connect with other contributors.
-
-## Design
-
-For an in-depth discussion of the CockroachDB architecture, see our
-[Architecture
-Guide](https://www.cockroachlabs.com/docs/stable/architecture/overview.html).
-For the original design motivation, see our [design
-doc](https://github.com/cockroachdb/cockroach/blob/master/docs/design.md).
-
-## Licensing
-
-Current CockroachDB code is released under a combination of two licenses, the [Business Source License (BSL)](https://www.cockroachlabs.com/docs/stable/licensing-faqs.html#bsl) and the [Cockroach Community License (CCL)](https://www.cockroachlabs.com/docs/stable/licensing-faqs.html#ccl).
-
-When contributing to a CockroachDB feature, you can find the relevant license in the comments at the top of each file.
-
-For more information, see the [Licensing FAQs](https://www.cockroachlabs.com/docs/stable/licensing-faqs.html).
-
-## Comparison with Other Databases
-
-To see how key features of CockroachDB stack up against other databases,
-check out [CockroachDB in Comparison](https://www.cockroachlabs.com/docs/stable/cockroachdb-in-comparison.html).
-
-## See Also
-
-- [Tech Talks](https://www.cockroachlabs.com/community/tech-talks/) (by CockroachDB founders, engineers, and customers!)
-- [CockroachDB User Documentation](https://cockroachlabs.com/docs/stable/)
-- [The CockroachDB Blog](https://www.cockroachlabs.com/blog/)
-- Key design documents
-  - [Serializable, Lockless, Distributed: Isolation in CockroachDB](https://www.cockroachlabs.com/blog/serializable-lockless-distributed-isolation-cockroachdb/)
-  - [Consensus, Made Thrive](https://www.cockroachlabs.com/blog/consensus-made-thrive/)
-  - [Trust, But Verify: How CockroachDB Checks Replication](https://www.cockroachlabs.com/blog/trust-but-verify-cockroachdb-checks-replication/)
-  - [Living Without Atomic Clocks](https://www.cockroachlabs.com/blog/living-without-atomic-clocks/)
-  - [The CockroachDB Architecture Document](https://github.com/cockroachdb/cockroach/blob/master/docs/design.md)
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文档</font></font></h2><a id="user-content-docs" class="anchor" aria-label="永久链接：文档" href="#docs"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">有关安装、开发、部署和管理的指导，请参阅我们的</font></font><a href="https://cockroachlabs.com/docs/stable/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用户文档</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">从 CockroachCloud 开始</font></font></h2><a id="user-content-starting-with-cockroachcloud" class="anchor" aria-label="永久链接：从 CockroachCloud 开始" href="#starting-with-cockroachcloud"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们可以为您运行 CockroachDB，这样您不必运行自己的集群。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">请参阅我们的在线文档：</font></font><a href="https://www.cockroachlabs.com/docs/cockroachcloud/quickstart.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">CockroachCloud 快速入门</font></font></a></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">从 CockroachDB 开始</font></font></h2><a id="user-content-starting-with-cockroachdb" class="anchor" aria-label="永久链接：从 CockroachDB 开始" href="#starting-with-cockroachdb"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ol dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">安装 CockroachDB：  </font></font><a href="https://www.cockroachlabs.com/docs/stable/install-cockroachdb.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用预先构建的可执行文件</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">或</font></font><a href="https://www.cockroachlabs.com/docs/v21.1/install-cockroachdb-linux#build-from-source" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">从源代码构建它</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></li>
+<li><a href="https://www.cockroachlabs.com/docs/stable/start-a-local-cluster.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">启动本地集群并通过</font></font></a><font style="vertical-align: inherit;"></font><a href="https://www.cockroachlabs.com/docs/stable/use-the-built-in-sql-client.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">内置 SQL 客户端</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">连接到它</font><font style="vertical-align: inherit;">。</font></font></li>
+<li><a href="https://www.cockroachlabs.com/docs/stable/learn-cockroachdb-sql.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">了解有关 CockroachDB SQL 的更多信息</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用与 PostgreSQL 兼容的驱动程序或 ORM 来</font></font><a href="https://www.cockroachlabs.com/docs/stable/hello-world-example-apps.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">构建带有 CockroachDB 的应用程序</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></li>
+<li><a href="https://www.cockroachlabs.com/docs/stable/demo-data-replication.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">探索核心功能</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，例如数据复制、自动重新平衡以及容错和恢复。</font></font></li>
+</ol>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">客户端驱动程序</font></font></h2><a id="user-content-client-drivers" class="anchor" aria-label="永久链接：客户端驱动程序" href="#client-drivers"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">CockroachDB 支持 PostgreSQL 有线协议，因此您可以使用任何可用的 PostgreSQL 客户端驱动程序从各种语言进行连接。</font></font></p>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">对于我们测试过的推荐驱动程序，请参阅</font></font><a href="https://www.cockroachlabs.com/docs/stable/install-client-drivers.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">安装客户端驱动程序</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">有关使用这些驱动程序以及支持的 ORM 的教程，请参阅</font></font><a href="https://www.cockroachlabs.com/docs/stable/example-apps.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">示例应用程序</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">部署</font></font></h2><a id="user-content-deployment" class="anchor" aria-label="永久链接：部署" href="#deployment"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li><a href="https://www.cockroachlabs.com/docs/cockroachcloud/quickstart" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">CockroachCloud</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> -在您首选的云平台上</font><font style="vertical-align: inherit;">创建</font></font><a href="https://cockroachlabs.cloud/signup?referralId=githubquickstart" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">免费 CockroachCloud 集群的步骤。</font></font></a><font style="vertical-align: inherit;"></font></li>
+<li><a href="https://www.cockroachlabs.com/docs/stable/manual-deployment.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">手动</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">- 在多台机器上手动部署 CockroachDB 集群的步骤。</font></font></li>
+<li><a href="https://www.cockroachlabs.com/docs/stable/cloud-deployment.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">云</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">- 在各种云平台上部署 CockroachDB 的指南。</font></font></li>
+<li><a href="https://www.cockroachlabs.com/docs/stable/orchestration.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">编排</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">- 使用流行的开源编排系统运行 CockroachDB 的指南。</font></font></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">需要帮忙？</font></font></h2><a id="user-content-need-help" class="anchor" aria-label="永久链接：需要帮忙吗？" href="#need-help"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li><a href="https://go.crdb.dev/p/slack" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">CockroachDB 社区 Slack</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> - 加入我们的 slack 与我们的工程师和其他运行 CockroachDB 的用户联系。</font></font></li>
+<li><a href="https://forum.cockroachlabs.com/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">CockroachDB 论坛</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><a href="https://stackoverflow.com/questions/tagged/cockroachdb" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Stack Overflow</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> - 提出问题，寻找答案并帮助其他用户。</font></font></li>
+<li><a href="https://www.cockroachlabs.com/docs/stable/troubleshooting-overview.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">故障排除文档</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">- 了解如何排除常见错误、集群设置和 SQL 查询行为。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如需报告错误、建议改进或请求新功能，请通过</font></font><a href="https://github.com/cockroachdb/cockroach/issues/new"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">打开问题</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">来帮助我们。</font></font></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">从源代码构建</font></font></h2><a id="user-content-building-from-source" class="anchor" aria-label="永久链接：从源代码构建" href="#building-from-source"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">请参阅</font></font><a href="https://wiki.crdb.io/wiki/spaces/CRDB/pages/181338446/Getting+and+building+from+source" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们的 wiki</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">了解更多详情。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">贡献</font></font></h2><a id="user-content-contributing" class="anchor" aria-label="永久链接：贡献" href="#contributing"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们欢迎您的贡献！如果您正在寻找要解决的问题，请尝试查看</font></font><a href="https://github.com/cockroachdb/cockroach/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">第一个好问题列表</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。我们会尽力用该标签标记适合新外部贡献者的问题，因此这是找到您可以提供帮助的问题的好方法！</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">请参阅</font></font><a href="https://wiki.crdb.io/wiki/spaces/CRDB/pages/73204033/Contributing+to+CockroachDB" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们的 wiki</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">了解更多详情。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"></font><a href="https://groups.google.com/forum/#!forum/cockroach-db" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">工程讨论在我们的公共邮件列表cockroach-db@googlegroups.com</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">上进行</font><font style="vertical-align: inherit;">。此外，请加入我们的</font></font><a href="https://go.crdb.dev/p/slack" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Community Slack</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">（有一个专门的 #contributors 频道&ZeroWidthSpace;&ZeroWidthSpace;！）来提问、讨论您的想法并与其他贡献者联系。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">设计</font></font></h2><a id="user-content-design" class="anchor" aria-label="固定链接：设计" href="#design"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">有关 CockroachDB 架构的深入讨论，请参阅我们的
+</font></font><a href="https://www.cockroachlabs.com/docs/stable/architecture/overview.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">架构指南</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。有关原始设计动机，请参阅我们的</font></font><a href="https://github.com/cockroachdb/cockroach/blob/master/docs/design.md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">设计文档</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">许可</font></font></h2><a id="user-content-licensing" class="anchor" aria-label="永久链接：许可" href="#licensing"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">当前 CockroachDB 代码是根据两种许可证组合发布的，即</font></font><a href="https://www.cockroachlabs.com/docs/stable/licensing-faqs.html#bsl" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">商业源许可证 (BSL)</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><a href="https://www.cockroachlabs.com/docs/stable/licensing-faqs.html#ccl" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cockroach 社区许可证 (CCL)</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">当为 CockroachDB 功能做出贡献时，您可以在每个文件顶部的注释中找到相关的许可证。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">有关更多信息，请参阅</font></font><a href="https://www.cockroachlabs.com/docs/stable/licensing-faqs.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">许可常见问题解答</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">与其他数据库的比较</font></font></h2><a id="user-content-comparison-with-other-databases" class="anchor" aria-label="永久链接：与其他数据库的比较" href="#comparison-with-other-databases"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">要了解 CockroachDB 的主要功能与其他数据库相比如何，请查看</font></font><a href="https://www.cockroachlabs.com/docs/stable/cockroachdb-in-comparison.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">CockroachDB 比较</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">也可以看看</font></font></h2><a id="user-content-see-also" class="anchor" aria-label="固定链接：另请参阅" href="#see-also"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li><a href="https://www.cockroachlabs.com/community/tech-talks/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">技术讲座</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">（由 CockroachDB 创始人、工程师和客户主持！）</font></font></li>
+<li><a href="https://cockroachlabs.com/docs/stable/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">CockroachDB 用户文档</font></font></a></li>
+<li><a href="https://www.cockroachlabs.com/blog/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">CockroachDB 博客</font></font></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">关键设计文件
+</font></font><ul dir="auto">
+<li><a href="https://www.cockroachlabs.com/blog/serializable-lockless-distributed-isolation-cockroachdb/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">可序列化、无锁、分布式：CockroachDB 中的隔离</font></font></a></li>
+<li><a href="https://www.cockroachlabs.com/blog/consensus-made-thrive/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">共识成就辉煌</font></font></a></li>
+<li><a href="https://www.cockroachlabs.com/blog/trust-but-verify-cockroachdb-checks-replication/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">信任，但要验证：CockroachDB 如何检查复制</font></font></a></li>
+<li><a href="https://www.cockroachlabs.com/blog/living-without-atomic-clocks/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">没有原子钟的生活</font></font></a></li>
+<li><a href="https://github.com/cockroachdb/cockroach/blob/master/docs/design.md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">CockroachDB架构文档</font></font></a></li>
+</ul>
+</li>
+</ul>
+</article></div>
